@@ -1,0 +1,15 @@
+.container {
+  padding: 40px;
+  font-family: "Segoe UI, sans-serif";
+  max-width: 600px;
+  margin: 0 auto;
+}
+.title {
+  color: #222222;
+  margin-bottom: 20px;
+}
+.link {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: 500;
+}
