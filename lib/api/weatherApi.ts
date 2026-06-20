@@ -26,14 +26,14 @@ export const getWeather = async ({
   try {
     if (lat && lon) {
       const { data } = await axios.get(
-        `http://localhost:3000/api/weather?latitude=${lat}&longitude=${lon}`
+        `${process.env.NEXT_PUBLIC_API_URL}/weather?latitude=${lat}&longitude=${lon}`
       );
       return data.temperature;
     }
 
     if (city) {
       const { data } = await axios.get(
-        `http://localhost:3000/api/weather?city=${city}`
+        `${process.env.NEXT_PUBLIC_API_URL}/weather?city=${city}`
       );
       return data.temperature;
     }
