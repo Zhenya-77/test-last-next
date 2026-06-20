@@ -29,8 +29,19 @@ export const useWeatherStore = create<WeatherStoreProps>()((set) => ({
     }
   },
   fetchWeatherBySearch: async (cityName: string) => {
+    set({ status: "loading" });
     try {
       const weather = await getWeather({ city: cityName });
+
+      if (weather === null || weather === undefined) {
+        set({
+          city: "",
+          temperature: null,
+          status: "error",
+        });
+        return;
+      }
+
       set({
         city: cityName,
         temperature: weather,

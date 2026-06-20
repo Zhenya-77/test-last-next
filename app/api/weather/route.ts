@@ -28,6 +28,9 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ temperature: res.current.temperature_2m });
     }
   } catch (error) {
-    NextResponse.json(error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 404 }
+    );
   }
 }

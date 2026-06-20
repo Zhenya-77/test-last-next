@@ -9,9 +9,12 @@ export default function WeatherSearchForm() {
   );
 
   const handleSubmit = (formData: FormData) => {
-    const city = formData.get("city") as string;
-    fetchWeatherBySearch(city);
-    console.log(city);
+    try {
+      const city = formData.get("city")?.toString().trim();
+
+      if (!city) return;
+      fetchWeatherBySearch(city);
+    } catch (error) {}
   };
 
   return (
